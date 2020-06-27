@@ -120,3 +120,7 @@ header a {
     font-variant: normal;
     text-transform: none;
     }
+
+#image-icon {
+    clip-path: circle(50% at 50% 50%);
+}
