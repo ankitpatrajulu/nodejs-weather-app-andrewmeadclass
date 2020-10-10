@@ -5,22 +5,18 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
-<<<<<<< HEAD
-    "dev" : "nodemon src/app.js -e js,hbs"
-=======
     "dev": "env-cmd -f ./src/config/dev.env nodemon src/app.js -e js,hbs"
->>>>>>> 1c85ceb... Adding dev script to package.json
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "env-cmd": "^10.1.0",
     "express": "^5.0.0-alpha.8",
     "hbs": "^4.1.1",
     "postman-request": "^2.88.1-postman.23"
   },
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "nodemon": "^2.0.4"
   }
 }

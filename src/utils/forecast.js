@@ -11,6 +11,7 @@ const forecast = (latitude, longitude, callback) => {
         }else {
             const string = body.current.weather_descriptions[0] + '. The temperature is ' + body.current.temperature + ' degrees out. The wind speed is ' + body.current.wind_speed + ' and the chance for rain is ' + body.current.precip + ' %.'
             callback(undefined, {
+				location: body.location.name,
                 forecast: body.current.weather_descriptions[0],
                 temperature: body.current.temperature,
                 wind_speed: body.current.wind_speed,

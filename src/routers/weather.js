@@ -1,6 +1,7 @@
 const express = require('express')
 const forecast = require('../utils/forecast')
 const geocode = require('../utils/geoCode')
+const request = require('postman-request')
 const router = express.Router()
 
 router.get('', (req, res) => {
@@ -54,6 +55,30 @@ router.get('/weather', (req,res) => {
         })
     })
 
+})
+
+router.get('/weatherButton', (req,res) => {
+		if(!req.query.latitude && !req.query.longitude) {
+        return res.send({
+            error: 'You have not provided any Geographis data'
+        })
+    }
+		
+        forecast(req.query.latitude, req.query.longitude, (error, {location, feelslike, humidity, icon, string}) => {
+            if(error) {
+                return res.send({
+                    error
+                })
+            }
+            res.send({
+				location,
+                forecast: string,
+                humidity,
+                feelslike,
+                icon,
+                query: req.query.address
+            })
+        })
 })
 
 router.get('/products', (req, res) => {
